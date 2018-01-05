@@ -1,0 +1,27 @@
+create table Login_contact_list(
+user_id	bigint(20) primary key auto_increment,			
+mobileno varchar(30) not null,
+passwrd	varchar(30) not null,	
+FRID	varchar(200) not null,	
+role varchar(50) not null
+);
+create table employee_profile(
+employee_id bigint(20) primary key auto_increment,
+user_id bigint(20) not null,
+full_name varchar(50) not null,
+address varchar(80) not null,
+gender varchar(50) not null,
+CONSTRAINT fk_employee FOREIGN KEY (user_id)
+  REFERENCES Login_contact_list(user_id)
+  ON DELETE CASCADE
+);
+create table contact_list(
+employee_id bigint(20) primary key auto_increment,
+Name varchar(50) not null,
+PhNo varchar(50) not null,
+Address  varchar(50) not null,
+Profession varchar(50) not null,
+Email varchar(50) not null,
+Status varchar(50) not null,
+Emp_Comment varchar(50) not null
+);
